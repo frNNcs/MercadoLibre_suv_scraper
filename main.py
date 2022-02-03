@@ -41,7 +41,7 @@ def main():
             moneda = item.find(class_='price-tag-symbol').text
             price = item.find(class_='price-tag-fraction').text.replace('.','')
             location = item.find(class_='ui-search-item__location').text
-            distance_km = str(int(distance.distance(BRANDSEN_LAT_LONG, get_latitude_longitude(location)).kilometers))
+            #distance_km = str(int(distance.distance(BRANDSEN_LAT_LONG, get_latitude_longitude(location)).kilometers))
             price_if_blue = str(int(float(price) * DOLAR_BLUE_HOY))
 
             items_dict.append(
@@ -53,9 +53,9 @@ def main():
                     'year': item.findAll(class_='ui-search-card-attributes__attribute')[0].text,
                     'km': item.findAll(class_='ui-search-card-attributes__attribute')[1].text.replace('Km', ''),
                     'location': location,
-                    'distance': distance_km,
+                    #'distance': distance_km,
                     'link': item.find('a', class_='ui-search-link')['href'],
-                    'page': page
+                    'page': str(page)
                 }
             )
 
