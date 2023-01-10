@@ -33,7 +33,7 @@ def main():
             link = item.find(class_='ui-search-link').get('href')
             items_dict.append(
                 {
-                    'title': title.text,
+                    'title': title.text.replace(',', ''),
                     'price': str(price),
                     'link': link,
                 }
