@@ -38,7 +38,7 @@ def main():
 
     while next_url_html := soup.findAll(class_="andes-pagination__button--next"):
         for item in soup.findAll('li', class_='ui-search-layout__item'):
-            moneda = item.find(class_='price-tag-symbol').text
+            moneda = item.find(class_='price-tag-symbol').text if item.find(class_='price-tag-symbol') else 0
             price = item.find(class_='price-tag-fraction').text.replace('.','')
             location = item.find(class_='ui-search-item__location').text
             #distance_km = str(int(distance.distance(BRANDSEN_LAT_LONG, get_latitude_longitude(location)).kilometers))
